@@ -55,6 +55,10 @@ public class UserController {
                 .body(new CustomErrorResponse(ex.getMessage(), ex.getCode(), ex.getTimestamp()));
         }
     }
+    @GetMapping("/status")
+    public String checkApiStatus() {
+        return "The Spring Boot API is working!";
+    }
 
     private String getCurrentTimestamp() {
         return DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss").format(LocalDateTime.now());
